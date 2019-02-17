@@ -21,9 +21,9 @@ RUN ALPINE_GLIBC_BASE_URL="https://github.com/sgerrand/alpine-pkg-glibc/releases
         1QIDAQAB\
         -----END PUBLIC KEY-----" | sed 's/   */\n/g' > "/etc/apk/keys/sgerrand.rsa.pub" && \
     echo \
-        "[snell-server]
-        listen = 0.0.0.0:24150
-        psk = e3Ad5MKXASnWCU0q4BgoqUZ39Dh5Hpb
+        "[snell-server]\
+        listen = 0.0.0.0:24150\
+        psk = e3Ad5MKXASnWCU0q4BgoqUZ39Dh5Hpb\
         obfs = http" | sed 's/   */\n/g' > "/snell-server.conf" && \
     wget \
         "$ALPINE_GLIBC_BASE_URL/$ALPINE_GLIBC_PACKAGE_VERSION/$ALPINE_GLIBC_BASE_PACKAGE_FILENAME" \
