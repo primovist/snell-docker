@@ -39,12 +39,12 @@ RUN ALPINE_GLIBC_BASE_URL="https://github.com/sgerrand/alpine-pkg-glibc/releases
         "$ALPINE_GLIBC_BASE_PACKAGE_FILENAME" \
         "$ALPINE_GLIBC_BIN_PACKAGE_FILENAME" \
         "$ALPINE_GLIBC_I18N_PACKAGE_FILENAME" && \
-    cat > snell-server.conf<<EOF \
-    [snell-server] \
-    listen = 0.0.0.0:24150 \
-    psk = e3Ad5MKXASnWCU0q4BgoqUZ39Dh5Hpb \
-    obfs = http \
-    EOF && \
+    cat > snell-server.conf<<EOF
+        [snell-server]
+        listen = 0.0.0.0:24150
+        psk = e3Ad5MKXASnWCU0q4BgoqUZ39Dh5Hpb
+        obfs = http
+        EOF && \
     wget --no-check-certificate -O snell.zip https://github.com/surge-networks/snell/releases/download/1.0/snell-server-v1.0.0-linux-amd64.zip && \
     unzip snell.zip && \
     rm -f snell.zip && \
