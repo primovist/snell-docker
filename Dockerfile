@@ -1,7 +1,7 @@
 FROM alpine
 LABEL maintainer="primovist" \
         org.label-schema.name="snell-server" \
-        org.label-schema.version=1.0
+        org.label-schema.version=1.1.0
 ENV LANG=C.UTF-8
 
 RUN ALPINE_GLIBC_BASE_URL="https://github.com/sgerrand/alpine-pkg-glibc/releases/download" && \
@@ -44,7 +44,7 @@ RUN ALPINE_GLIBC_BASE_URL="https://github.com/sgerrand/alpine-pkg-glibc/releases
         "$ALPINE_GLIBC_BASE_PACKAGE_FILENAME" \
         "$ALPINE_GLIBC_BIN_PACKAGE_FILENAME" \
         "$ALPINE_GLIBC_I18N_PACKAGE_FILENAME" && \
-    wget --no-check-certificate -O snell.zip https://github.com/surge-networks/snell/releases/download/1.0/snell-server-v1.0.0-linux-amd64.zip && \
+    wget --no-check-certificate -O snell.zip https://github.com/surge-networks/snell/releases/download/v1.1.0/snell-server-v1.1.0-linux-amd64.zip && \
     unzip snell.zip && \
     rm -f snell.zip && \
     chmod +x snell-server
