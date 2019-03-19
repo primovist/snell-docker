@@ -16,6 +16,7 @@ if [ -f ${CONF} ]; then
         echo "Using predefined PSK: ${PSK}"
     fi
     echo "Generating new config..."
+    mkdir /etc/snell/
     echo "[snell-server]" >> ${CONF}
     echo "listen = 0.0.0.0:${SERVER_PORT}" >> ${CONF}
     echo "psk = ${PSK}" >> ${CONF}
