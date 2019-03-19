@@ -1,4 +1,4 @@
-FROM aprimovist/alpine-glibc
+FROM primovist/alpine-glibc
 LABEL maintainer="primovist" \
         org.label-schema.name="snell-server" \
         org.label-schema.version=1.1.0
