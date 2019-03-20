@@ -3,17 +3,14 @@ BIN="/usr/bin/snell-server"
 CONF="/etc/snell/snell-server.conf"
 # reuse existing config when the container restarts
 run() {
-    ${BIN} -c ${CONF}
-}
-if [ -f ${CONF} ]; then
+  if [ -f ${CONF} ]; then
     echo "Found existing config..."
-    run
- else
+  else
     if [ -z ${PSK} ]; then
-        PSK=$(tr -dc A-Za-z0-9 </dev/urandom | head -c 16)
-        echo "Using generated PSK: ${PSK}"
+      PSK=$(tr -dc A-Za-z0-9 </dev/urandom | head -c 31)
+      echo "Using generated PSK: ${PSK}"
     else
-        echo "Using predefined PSK: ${PSK}"
+      echo "Using predefined PSK: ${PSK}"
     fi
     echo "Generating new config..."
     mkdir /etc/snell/
@@ -21,5 +18,11 @@ if [ -f ${CONF} ]; then
     echo "listen = 0.0.0.0:${SERVER_PORT}" >> ${CONF}
     echo "psk = ${PSK}" >> ${CONF}
     echo "obfs = tls" >> ${CONF}
-    run
+  fi
+  ${BIN} -c ${CONF} ${ARGS}
+}
+if [ -z "$@" ]; then
+  run
+else
+  exec "$@"
 fi

@@ -14,5 +14,5 @@ RUN wget --no-check-certificate -O snell.zip https://github.com/surge-networks/s
     chmod +x snell-server && \
     mv snell-server /usr/bin/
 COPY entrypoint.sh /usr/bin/
-RUN chmod +x /usr/bin/entrypoint.sh
-ENTRYPOINT /usr/bin/entrypoint.sh
+RUN chmod +x /usr/bin/Entrypoint.sh
+ENTRYPOINT ["Entrypoint.sh"]
