@@ -15,11 +15,11 @@ run() {
     echo "Generating new config..."
     mkdir /etc/snell/
     echo "[snell-server]" >> ${CONF}
-    echo "listen = 0.0.0.0:${SERVER_PORT}" >> ${CONF}
+    echo "listen = 0.0.0.0:${PORT}" >> ${CONF}
     echo "psk = ${PSK}" >> ${CONF}
     echo "obfs = tls" >> ${CONF}
   fi
-  ${BIN} -c ${CONF} ${ARGS}
+  ${BIN} -c ${CONF}
 }
 if [ -z "$@" ]; then
   run
