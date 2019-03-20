@@ -7,8 +7,6 @@ ENV LANG=C.UTF-8
 ENV PORT=12543
 ENV PSK=
 ENV OBFS=tls
-VOLUME /etc/snell/
-EXPOSE PORT
 RUN wget --no-check-certificate -O snell.zip https://github.com/surge-networks/snell/releases/download/v${SNELL_VERSION}/snell-server-v${SNELL_VERSION}-linux-amd64.zip && \
     unzip snell.zip && \
     rm -f snell.zip && \
