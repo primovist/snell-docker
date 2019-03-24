@@ -8,11 +8,11 @@ ENV LANG=C.UTF-8
 ENV PORT=12543
 ENV PSK=
 ENV OBFS=tls
+COPY Entrypoint.sh /usr/bin/
 RUN wget --no-check-certificate -O snell.zip $SNELL_URL&& \
     unzip snell.zip && \
     rm -f snell.zip && \
     chmod +x snell-server && \
-    mv snell-server /usr/bin/
-COPY Entrypoint.sh /usr/bin/
-RUN chmod +x /usr/bin/Entrypoint.sh
+    mv snell-server /usr/bin/ && \
+    chmod +x /usr/bin/Entrypoint.sh
 ENTRYPOINT ["Entrypoint.sh"]
