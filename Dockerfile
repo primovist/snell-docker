@@ -1,9 +1,7 @@
 FROM primovist/alpine-glibc
-ARG SNELL_VER=1.1.1
-ARG SNELL_URL=https://github.com/surge-networks/snell/releases/download/v$SNELL_VER/snell-server-v$SNELL_VER-linux-amd64.zip
+ARG SNELL_URL=https://github.com/surge-networks/snell/releases/download/2.0.0b1/snell-server-v2.0.0-linux-amd64.zip
 LABEL maintainer="primovist" \
         org.label-schema.name="snell-server" \
-        org.label-schema.version=$SNELL_VER
 ENV LANG=C.UTF-8
 ENV PORT=12543
 ENV PSK=
